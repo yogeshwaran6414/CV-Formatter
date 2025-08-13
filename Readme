@@ -1,0 +1,141 @@
+# 📄 AI-Powered CV Formatter
+
+An AI-powered web application that lets users upload their CV/Resume (PDF or DOCX), automatically extracts and formats the content into a clean, editable layout, and exports the updated CV in PDF or DOCX format.
+
+## 🚀 Features
+
+- **Two-step CV processing**
+  1. Upload a CV file to extract raw text.
+  2. Process extracted text with AI to produce a structured, formatted CV.
+- **Side-by-side preview** — Original text on the left, formatted CV on the right.
+- **Inline editing** — Modify any section before export.
+- **Export options** — Download as PDF or DOCX.
+- **Supports PDF & DOCX uploads**
+- Clean, professional design layout.
+
+---
+
+## 🛠 Tech Stack
+
+**Frontend**:
+- Next.js (React)
+- Axios for API communication
+
+**Backend**:
+- Node.js + Express.js
+- MongoDB + Mongoose
+- pdf-lib & docx for exports
+- Multer for file uploads
+
+**AI & Services**:
+- `parserService` — Extract text from PDF/DOCX
+- `aiService` — AI-powered structuring and enhancement
+- `formatService` — Formatting rules for clean output
+
+---
+
+## 📂 Project Structure
+
+CV-Formatter/
+│
+├── backend/ # Backend (API + Processing)
+│ ├── controllers/ # cvController.js and others
+│ ├── models/ # CvJob schema
+│ ├── routes/ # API routes
+│ ├── services/ # Parser/AI/Formatter modules
+│ ├── uploads/ # Uploaded files (ignored by Git)
+│ ├── server.js # Backend entry point
+│ └── package.json
+│
+├── frontend/ # Frontend (Next.js App)
+│ ├── components/ # UI components (DragDropUploader, ExportButtons, etc.)
+│ ├── pages/ # index.js and more
+│ ├── public/
+│ ├── styles/
+│ └── package.json
+│
+├── .gitignore
+└── README.md
+
+text
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+git clone https://github.com/<your-username>/CV-Formatter.git
+cd CV-Formatter
+
+text
+
+### 2️⃣ Backend Setup
+cd backend
+npm install
+
+text
+
+Create a `.env` file in the `backend/` folder:
+PORT=4000
+MONGO_URI=your_mongodb_connection_string
+OPENAI_API_KEY=your_openai_api_key
+
+text
+
+Run the backend:
+npm run dev # or node server.js
+
+text
+
+---
+
+### 3️⃣ Frontend Setup
+In a new terminal:
+cd frontend
+npm install
+
+text
+
+Create a `.env.local` in `frontend/`:
+NEXT_PUBLIC_API_BASE=http://localhost:4000/api
+
+text
+
+Run the frontend:
+npm run dev
+
+text
+
+---
+
+## 🖥 Usage
+
+1. Start **backend** and **frontend**.
+2. Open browser at `http://localhost:3000`.
+3. Drag & drop a PDF or DOCX CV file.
+4. Left panel will show extracted original text.
+5. Right panel shows formatted CV.
+6. Edit fields as needed.
+7. Click **Export PDF** or **Export DOCX** to download the final CV.
+
+---
+
+## 📌 Routes Overview
+
+### Backend API
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/cv/upload` | Upload CV file → returns extracted text |
+| POST | `/api/cv/process` | Process extracted text → returns formatted CV & jobId |
+| GET  | `/api/cv/export/:id/:format` | Export formatted CV as PDF/DOCX |
+
+---
+
+## 🤝 Contributing
+Pull requests are welcome. For major changes, open an issue first to discuss what you’d like to change.
+
+---
+
+## 👤 Author
+**Yogeshwaran K**  
+GitHub: [@yogeshwaran](https://github.com/yogeshwaran6414)
